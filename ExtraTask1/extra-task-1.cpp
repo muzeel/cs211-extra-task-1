@@ -6,44 +6,44 @@ double seconds_difference(double time_1, double time_2)
     return time_2 - time_1;
 }
 
+//Returns the number of hours later that a time in seconds time_2 is than a time in seconds time_1.
 double hours_difference(double time_1, double time_2)
 {
     return (time_2 - time_1) / 3600.0;
 }
 
+//Returns the total number of hours in the specified number of hours, minutes, and seconds.
 double to_float_hours(int hours, int minutes, int seconds)
 {
-    assert(0 <= minutes < 60);
-    assert(0 <= seconds < 60);
+    assert(minutes < 60 && minutes >= 0);
+    assert(seconds < 60 && seconds >= 0);
     return hours + minutes / 60.0 + seconds / 3600.0;
 }
 
+//Returns the hour as seen on a 24 - hour clock.
 double to_24_hour_clock(double hours)
 {
     assert(hours >= 0);
     return ((int)hours) % 24 + hours - (int)hours;
 }
 
-/*
-    Implement three functions
-        * get_hours
-        * get_minutes
-        * get_seconds
-    They are used to determine the hours part, minutes part and seconds part 
-    of a time in seconds. E.g.:
+//Determines the hours part.
+int get_hours(int s)
+{
+    return s / 3600;
+}
 
-    >>> get_hours(3800)
-    1
+//Determines the minutes part.
+int get_minutes(int s)
+{
+    return (s % 3600) / 60;
+}
 
-    >>> get_minutes(3800)
-    3
-
-    >>> get_seconds(3800)
-    20
-
-    In other words, if 3800 seconds have elapsed since midnight, 
-    it is currently 01:03:20 (hh:mm:ss).
-*/
+//Determines the seconds part.
+int get_seconds(int s)
+{
+    return (s % 3600) % 60;
+}
 
 double time_to_utc(int utc_offset, double time)
 {
