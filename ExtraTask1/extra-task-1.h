@@ -3,6 +3,7 @@
 #define EXTRA_TASK_1_H
 #include <cassert>
 #include <iostream>
+#include <cmath>
 
 //Returns the number of seconds later that a time in seconds time_2 is than a time in seconds time_1.
 double seconds_difference(double, double);
@@ -12,5 +13,8 @@ double hours_difference(double, double);
 
 //Returns the total number of hours in the specified number of hours, minutes, and seconds.
 double to_float_hours(int, int, int);
+
+//Returns the hour as seen on a 24 - hour clock.
+double to_24_hour_clock(double);
 
 #endif // !EXTRA_TASK_1_H
